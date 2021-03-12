@@ -1,4 +1,5 @@
-package com.shipmentevents.handlers;
+package com.shipmentEvents.handlers;
+//package com.shipmentevents.handlers;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -89,8 +90,8 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
             deleteProcessedFiles(filesToDelete);
             logger.log("All updates successfully processed");
         } else {
-            throw new RuntimeException();
-            //throw new RuntimeException("Failed to write summary status, will be retried in 15 minutes");
+            //throw new RuntimeException();
+            throw new RuntimeException("Failed to write summary status, will be retried in 15 minutes");
         }
         
     }
@@ -121,9 +122,9 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
                 continue;
             }
             
-           // if (!fileContents.contains("\n")) {
-          //      
-          //  }
+            if (!fileContents.contains("\n")) {
+                
+            }
             String[] lines = fileContents.split("\n");
             String line1 = lines[0];
             String line2 = lines[1];
