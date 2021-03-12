@@ -52,7 +52,8 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
             return "SUCCESS";
         } catch (final Exception ex) {
             logger.log(String.format("Failed to process shipment Updates in %s due to %s", scheduledEvent.getAccount(), ex.getMessage()));
-            throw new RuntimeException(ex);
+            throw new RuntimeException();
+            //throw new RuntimeException(ex);
         }
     }
 
@@ -88,7 +89,8 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
             deleteProcessedFiles(filesToDelete);
             logger.log("All updates successfully processed");
         } else {
-            throw new RuntimeException("Failed to write summary status, will be retried in 15 minutes");
+            throw new RuntimeException();
+            //throw new RuntimeException("Failed to write summary status, will be retried in 15 minutes");
         }
         
     }
@@ -119,9 +121,9 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
                 continue;
             }
             
-            if (!fileContents.contains("\n")) {
-                
-            }
+           // if (!fileContents.contains("\n")) {
+          //      
+          //  }
             String[] lines = fileContents.split("\n");
             String line1 = lines[0];
             String line2 = lines[1];
