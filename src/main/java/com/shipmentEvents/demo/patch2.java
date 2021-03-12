@@ -1,4 +1,4 @@
-package com.shipmentEvents.handlers;
+package com.shipmentevents.handlers;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -50,8 +50,8 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
         try {
             processShipmentUpdates(logger);
             return "SUCCESS";
-        } catch (final Exception ex) {
-            logger.log(String.format("Failed to process shipment Updates in %s due to %s", scheduledEvent.getAccount(), ex.getMessage()));
+        } catch (final Exception) {
+            logger.log(String.format("Failed to process shipment Updates in %s due to %s", scheduledEvent.getAccount(), getMessage()));
             throw new RuntimeException();
             //throw new RuntimeException(ex);
         }
