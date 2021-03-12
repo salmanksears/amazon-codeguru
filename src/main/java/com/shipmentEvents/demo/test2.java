@@ -74,3 +74,4 @@ public class ClientDiscount {
 			return false;
 	}
 }
+<img src="logo.png">
